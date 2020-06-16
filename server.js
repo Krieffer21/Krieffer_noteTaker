@@ -17,28 +17,30 @@ app.get("/api/notes", function(req, res) {
         if (err) throw err;
         return res.json(JSON.parse(data));         
     });
-
 });
 
-// app.post("/api/notes", function(req, res) {
-    
-//     req.on("data", function(data) {
-//         const newNote = req.body;
-//         res.json(newNote);
-    
-//         newNote += data;
-//         // write to db file
-//         res.writeHead(200, {"Content-type": "db/db.json"});
-//       });
-    
-// });
+app.post("/api/notes", function(req, res) {
+    const newNote = req.body;
 
-// app.delete("/api/notes/:id", function(req, res) {
-//     const delNote = req.params.${id};
-//     console.log(chosen);
-  
+    fs.readFile(path.join(__dirname, "db", "db.json"), function(err, data) {
+        if (err) throw err;
+        db = JSON.parse(data);
+        db.push(newNote);
+
+        fs.writeFile(path.join(__dirname, "db","db.json"), JSON.stringify(db), function(err) {
+            if (err) throw err;
+        });
     
-// })
+        res.json(newNote);       
+    });
+});
+
+app.delete("/api/notes/:id", function(req, res) {
+    
+    const delNote = req.params.${id};
+    console.log(chosen);
+  
+})
 
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
