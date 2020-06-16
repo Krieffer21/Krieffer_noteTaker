@@ -25,6 +25,7 @@ app.post("/api/notes", function(req, res) {
     fs.readFile(path.join(__dirname, "db", "db.json"), function(err, data) {
         if (err) throw err;
         db = JSON.parse(data);
+        newNote.id = db.length + 1;
         db.push(newNote);
 
         fs.writeFile(path.join(__dirname, "db","db.json"), JSON.stringify(db), function(err) {
@@ -36,11 +37,20 @@ app.post("/api/notes", function(req, res) {
 });
 
 app.delete("/api/notes/:id", function(req, res) {
-    
-    const delNote = req.params.${id};
-    console.log(chosen);
-  
-})
+     let delNote = req.params.id;
+     const rmNote = req.body;
+
+     fs.readFile(path.join(__dirname, "db", "db.json"), function(err, data) {
+        if (err) throw err;
+        db = JSON.parse(data);
+        db.splice(delNote -1, 1);
+
+        fs.writeFile(path.join(__dirname, "db","db.json"), JSON.stringify(db), function(err) {
+            if (err) throw err;
+        });
+        res.json(rmNote);       
+    });
+});
 
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
