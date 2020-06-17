@@ -14,7 +14,8 @@
 ![post](https://github.com/Krieffer21/Krieffer_noteTaker/blob/master/assets/Screen%20Shot%202020-06-16%20at%203.17.54%20PM.png)
 
 ### DELETE API Route
-
+  The DELETE route uses the unique id of the note selected to delete it. Then it rewrites the notes to the file.    
+  
 ![delete](https://github.com/Krieffer21/Krieffer_noteTaker/blob/master/assets/Screen%20Shot%202020-06-16%20at%203.18.04%20PM.png)
 
 ### Note Taker GIF
