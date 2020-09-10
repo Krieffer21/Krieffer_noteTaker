@@ -18,7 +18,7 @@
   
 ![delete](https://github.com/Krieffer21/Krieffer_noteTaker/blob/master/assets/Screen%20Shot%202020-06-16%20at%203.18.04%20PM.png)
 
-### Note Taker GIF
+### Note Taker GIF 
   In the gif below you can see the Heroku url connects to the functioning application. 
   Deployed link: https://morning-bastion-53699.herokuapp.com/notes 
 
