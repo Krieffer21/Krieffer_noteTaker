@@ -1,5 +1,5 @@
 # Krieffer_noteTaker
- 
+  
 ## Note Taker
   This assignment was to write the backend code and connect it to the given front end code to create a note taker application. The completed application will allow the user to write a note, save it, and delete the selected note. 
 
